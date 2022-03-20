@@ -1,0 +1,17 @@
+<h1>{{ question?.title }}</h1>
+
+<textarea *ngIf="isTextType" name="" id="" cols="30" rows="10"></textarea>
+
+<div *ngIf="isRadioType">
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+        <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option">
+            {{ option }}
+        </mat-radio-button>
+    </mat-radio-group>
+</div>
+
+<div *ngIf="isCheckboxType">
+    <section class="example-section">
+        <mat-checkbox *ngFor="let option of options">{{ option }}</mat-checkbox>
+    </section>
+</div>

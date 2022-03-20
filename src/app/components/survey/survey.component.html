@@ -1,0 +1,7 @@
+<h1>{{ survey.title }}</h1>
+<h1>Created: {{ survey.date }}</h1>
+<h1>No. of question: {{ survey.questions?.length }}</h1>
+<h1>Duration: {{ survey.time }}</h1>
+
+<button mat-raised-button (click)="takeSurvey()">Take survey</button>
+<button mat-raised-button color="primary">Show results</button>

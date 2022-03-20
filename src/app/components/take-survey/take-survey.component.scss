@@ -1,0 +1,27 @@
+.title {
+    height: 10%;
+    background-color: aqua; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.list {
+    background-color: chartreuse;
+}
+
+mat-list {
+    width: 7vw;
+}
+
+mat-list-item {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 100px !important;
+    cursor: pointer;
+}
+
+.active {
+    background-color: cyan !important;
+}
