@@ -1,27 +1,38 @@
 .title {
     height: 10%;
-    background-color: aqua; 
-    display: flex; 
-    align-items: center; 
+    background-color: #243e8e;
+    color: #fff;
+    display: flex;
+    align-items: center;
     justify-content: center;
+
+    h1 {
+        font-weight: 300;
+        font-size: 48px;
+        font-family: system-ui;
+    }
 }
 
 .list {
-    background-color: chartreuse;
+    background-color: #243e8e;
 }
 
 mat-list {
+    padding-top: 0 !important;
     width: 7vw;
 }
 
 mat-list-item {
+    color: #fff !important;
     display: flex !important;
     justify-content: center;
     align-items: center;
     height: 100px !important;
     cursor: pointer;
+    font-size: 24px !important;
 }
 
 .active {
-    background-color: cyan !important;
+    background-color: #fff;
+    color: black !important;
 }

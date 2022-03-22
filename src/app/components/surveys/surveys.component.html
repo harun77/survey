@@ -1,1 +1,18 @@
-<app-survey *ngFor="let survey of surveys" [survey]="survey"></app-survey>
+<div class="container">
+    <div class="title">
+        <h1>List of surveys</h1>
+    </div>
+    <div class="surveys">
+        <div class="actions">
+            <mat-form-field class="example-form-field">
+                <mat-label style="font-size: 24px;">Search...</mat-label>
+                <input style="font-size: 24px;" matInput type="text" [(ngModel)]="searchText" autocomplete="off"
+                    (ngModelChange)="filterSurvey()">
+                <button *ngIf="searchText" matSuffix mat-icon-button (click)="initialSurvey()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <app-survey *ngFor="let survey of filterdSurveys" [survey]="survey"></app-survey>
+    </div>
+</div>

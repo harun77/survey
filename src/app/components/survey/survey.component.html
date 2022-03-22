@@ -1,7 +1,12 @@
-<h1>{{ survey.title }}</h1>
-<h1>Created: {{ survey.date }}</h1>
-<h1>No. of question: {{ survey.questions?.length }}</h1>
-<h1>Duration: {{ survey.time }}</h1>
-
-<button mat-raised-button (click)="takeSurvey()">Take survey</button>
-<button mat-raised-button color="primary">Show results</button>
+<mat-card class="card">
+    <mat-card-title>{{ survey.title }}</mat-card-title>
+    <mat-card-subtitle>{{ survey.time }}</mat-card-subtitle>
+    <mat-card-content>
+        <h1>Created: {{ survey.date }}</h1>
+        <h1>No. of question: {{ survey.questions?.length }}</h1>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-raised-button (click)="takeSurvey()">Take survey</button>
+        <button mat-raised-button color="primary">Show results</button>
+    </mat-card-actions>
+</mat-card>

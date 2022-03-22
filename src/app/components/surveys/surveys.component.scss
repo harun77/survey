@@ -1,0 +1,26 @@
+.title {
+    height: 20vh;
+    background-color: black;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 64px;
+        font-family: system-ui;
+    }
+}
+
+.surveys {
+    margin: auto;
+    margin-top: 36px;
+    width: 70%;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}

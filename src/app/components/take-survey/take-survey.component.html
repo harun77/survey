@@ -3,7 +3,7 @@
 </div>
 
 <div style="display: flex; height: 90%;">
-    <div class="list">
+    <div class="list" style="width: 7%">
         <mat-list role="list">
             <mat-list-item role="listitem" *ngFor="let question of survey?.questions; index as index"
                 [class.active]="index == currentQuestionId" (click)="changeQuestion(index)">
@@ -11,7 +11,7 @@
             </mat-list-item>
         </mat-list>
     </div>
-    <div style="margin-left: 10%;">
+    <div style="padding: 5%; background: aliceblue; width: 93%;">
         <app-question [question]="currentQuestion"></app-question>
     </div>
 </div>
