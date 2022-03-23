@@ -11,6 +11,11 @@
         font-size: 48px;
         font-family: system-ui;
     }
+
+    .timer {
+        position: fixed;
+        right: 100px;
+    }
 }
 
 .list {
@@ -35,4 +40,25 @@ mat-list-item {
 .active {
     background-color: #fff;
     color: black !important;
+}
+
+.ended {
+    display: flex;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-size: 62px;
+    }
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }

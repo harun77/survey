@@ -13,8 +13,14 @@ export class TakeSurveyComponent implements OnInit {
 
   currentQuestionId: number = 0;
 
+  duration: any;
+
   get currentQuestion(): any {
     return this.survey?.questions[this.currentQuestionId];
+  }
+
+  get second(): number {
+    return this.duration;
   }
 
   constructor(private surveyService: SurveyService, private route: ActivatedRoute) { }
@@ -23,8 +29,12 @@ export class TakeSurveyComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
     this.surveyService.getSurvey(id).subscribe(res => {
       this.survey = res.surveys.filter((s: any) => s.id == id)[0];
-      
-      
+      this.duration = parseInt(this.survey.time) * 60;
+
+      const timer = setInterval(() => {
+        --this.duration;
+        if (this.duration == 0) clearInterval(timer);
+      }, 1000);
     })
   }
 

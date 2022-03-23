@@ -4,7 +4,7 @@
             "id": 1,
             "title": "Survey 1",
             "date": "12/1/2022",
-            "time": "30min",
+            "time": "1min",
             "questions": [
                 {
                     "title": "Question 1",
