@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 enum QuestionType {
   Text = 'text',
@@ -11,9 +11,17 @@ enum QuestionType {
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent {
 
   @Input() question: any;
+
+  @Output() answer = new EventEmitter;
+
+  textAnswer: string = '';
+
+  radioAnswer: string = '';
+
+  checkboxAnswer: string[] = [];
 
   get isTextType(): boolean {
     return this.question?.type === QuestionType.Text;
@@ -33,9 +41,22 @@ export class QuestionComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(this.question?.options);
-    
+  setTextValue(): void {
+    this.answer.emit(this.textAnswer);
+  }
+
+  setRadioValue(e: any) {
+    this.radioAnswer = e.value;
+    this.answer.emit(this.radioAnswer);
+  }
+
+  setCheckboxValue(e: any, answer: string) {
+    if (e.checked) {
+      this.checkboxAnswer.push(answer);
+    } else {
+      this.checkboxAnswer = this.checkboxAnswer.filter(e => e != answer);
+    }
+    this.answer.emit(this.checkboxAnswer);
   }
 
 }

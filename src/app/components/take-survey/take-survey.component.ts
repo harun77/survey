@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SurveyService } from '../../services/survey.service';
 
+export class Answer {
+  id: any;
+  answer: { [id: number]: string } = {};
+}
+
 @Component({
   selector: 'app-take-survey',
   templateUrl: './take-survey.component.html',
@@ -17,6 +22,8 @@ export class TakeSurveyComponent implements OnInit {
 
   timer: any;
 
+  surveyResult = new Answer;
+
   get currentQuestion(): any {
     return this.survey?.questions[this.currentQuestionId];
   }
@@ -29,6 +36,7 @@ export class TakeSurveyComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
+    this.surveyResult.id = id;
     this.surveyService.getSurvey(id).subscribe(res => {
       this.survey = res.surveys.filter((s: any) => s.id == id)[0];
       this.duration = parseInt(this.survey.time) * 60;
@@ -37,17 +45,21 @@ export class TakeSurveyComponent implements OnInit {
         if (this.duration == 0) clearInterval(this.timer);
         --this.duration;
       }, 1000);
-    })
+    });
   }
 
   changeQuestion(index: number): void {
     this.currentQuestionId = index;
-    console.log(this.survey.questions[index]);
   }
 
   end(): void {
     clearInterval(this.timer);
     this.duration = 0;
+    console.log(this.surveyResult);
+  }
+
+  setAnswer(answer: any) {
+    this.surveyResult.answer[this.currentQuestionId] = answer;
   }
 
 }

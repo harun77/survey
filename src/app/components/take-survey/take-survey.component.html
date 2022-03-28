@@ -14,7 +14,7 @@
         </mat-list>
     </div>
     <div style="padding: 5%; background: aliceblue; width: 93%;">
-        <app-question [question]="currentQuestion"></app-question>
+        <app-question [question]="currentQuestion" (answer)="setAnswer($event)"></app-question>
     </div>
 </div>
 

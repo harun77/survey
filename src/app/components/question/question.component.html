@@ -1,17 +1,18 @@
 <h1>{{ question?.title }}</h1>
 
-<textarea *ngIf="isTextType" name="" id="" cols="30" rows="10"></textarea>
+<textarea *ngIf="isTextType" cols="30" rows="10" [(ngModel)]="textAnswer" (input)="setTextValue()"></textarea>
 
 <div *ngIf="isRadioType">
-    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
-        <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option">
+    <mat-radio-group class="section">
+        <mat-radio-button class="option-button" *ngFor="let option of options" [value]="option"
+            (change)="setRadioValue($event)">
             {{ option }}
         </mat-radio-button>
     </mat-radio-group>
 </div>
 
-<div *ngIf="isCheckboxType">
-    <section class="example-section">
-        <mat-checkbox *ngFor="let option of options">{{ option }}</mat-checkbox>
-    </section>
+<div *ngIf="isCheckboxType" class="section">
+    <mat-checkbox class="option-button" *ngFor="let option of options" (change)="setCheckboxValue($event, option)">
+        {{ option }}
+    </mat-checkbox>
 </div>
