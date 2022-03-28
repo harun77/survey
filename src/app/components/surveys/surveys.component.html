@@ -4,7 +4,15 @@
     </div>
     <div class="surveys">
         <div class="actions">
-            <mat-form-field class="example-form-field">
+            <mat-form-field class="action-field">
+                <mat-label style="font-size: 24px;">Sort by</mat-label>
+                <mat-select style="font-size: 24px;" [(ngModel)]="sortBy" (selectionChange)="sort()">
+                    <mat-option *ngFor="let option of sortOptions" [value]="option.value">
+                        {{ option.key }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-form-field action-field">
                 <mat-label style="font-size: 24px;">Search...</mat-label>
                 <input style="font-size: 24px;" matInput type="text" [(ngModel)]="searchText" autocomplete="off"
                     (ngModelChange)="filterSurvey()">

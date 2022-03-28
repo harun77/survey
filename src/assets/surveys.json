@@ -32,7 +32,7 @@
         {
             "id": 2,
             "title": "Survey 2",
-            "date": "12/1/2022",
+            "date": "11/1/2022",
             "time": "30min",
             "questions": [
                 {
@@ -53,8 +53,8 @@
         {
             "id": 3,
             "title": "Survey 3",
-            "date": "12/1/2022",
-            "time": "30min",
+            "date": "13/1/2022",
+            "time": "10min",
             "questions": [
                 {
                     "title": "Question 1",
@@ -63,6 +63,37 @@
                         "Male",
                         "Female"
                     ]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Survey 4",
+            "date": "09/1/2022",
+            "time": "10min",
+            "questions": [
+                {
+                    "title": "Question 1",
+                    "type": "radio",
+                    "options": [
+                        "Male",
+                        "Female"
+                    ]
+                },
+                {
+                    "title": "Question 2",
+                    "type": "text",
+                    "options": []
+                },
+                {
+                    "title": "Question 2",
+                    "type": "text",
+                    "options": []
+                },
+                {
+                    "title": "Question 2",
+                    "type": "text",
+                    "options": []
                 },
                 {
                     "title": "Question 2",

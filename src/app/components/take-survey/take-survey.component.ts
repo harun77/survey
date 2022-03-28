@@ -15,6 +15,8 @@ export class TakeSurveyComponent implements OnInit {
 
   duration: any;
 
+  timer: any;
+
   get currentQuestion(): any {
     return this.survey?.questions[this.currentQuestionId];
   }
@@ -31,9 +33,9 @@ export class TakeSurveyComponent implements OnInit {
       this.survey = res.surveys.filter((s: any) => s.id == id)[0];
       this.duration = parseInt(this.survey.time) * 60;
 
-      const timer = setInterval(() => {
+      this.timer = setInterval(() => {
+        if (this.duration == 0) clearInterval(this.timer);
         --this.duration;
-        if (this.duration == 0) clearInterval(timer);
       }, 1000);
     })
   }
@@ -41,6 +43,11 @@ export class TakeSurveyComponent implements OnInit {
   changeQuestion(index: number): void {
     this.currentQuestionId = index;
     console.log(this.survey.questions[index]);
+  }
+
+  end(): void {
+    clearInterval(this.timer);
+    this.duration = 0;
   }
 
 }
